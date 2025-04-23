@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('staffID', 10)->primary();
             $table->string('staffName', 45);
             $table->string('staffpositionID', 45);
-            $table->string('staffAddress', 45);
+            $table->string('staffAddress');
             $table->string('cityID', 45);
             $table->timestamps();
         

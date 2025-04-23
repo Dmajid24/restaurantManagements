@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('customerName', 45);
             $table->string('customerAddress', 45);
             $table->string('memberTypeID', 45);
-            $table->string('cityID', 45);
+            $table->string('cityID', 20);
             $table->timestamps();
         
             $table->foreign('memberTypeID')->references('memberTypeID')->on('membertypetable');

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('membertypetable', function (Blueprint $table) {
             $table->string('memberTypeID', 20)->primary();
-            $table->string('memberType', 45);
+            $table->string('memberTypeName', 45);
             $table->timestamps();
         });
     }
