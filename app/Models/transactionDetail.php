@@ -23,8 +23,8 @@ class transactionDetail extends Model
     ];
     public $timsstamps = true;
 
-    public function product() {
-        return $this->belongsTo(product::class, 'transactionID', 'transactionID');
+    public function transactionHeaders() {
+        return $this->belongsTo(transactionHeader::class, 'transactionID', 'transactionID');
     }
     public function menu() {
         return $this->belongsTo(Menu::class, 'menuID', 'menuID');

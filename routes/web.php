@@ -19,4 +19,4 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard', [viewOrder::class, 'index']);
 
-Route::get('/dashboard', [dashboardController::class, 'index']);
+// Route::get('/dashboard', [dashboardController::class, 'index']);
