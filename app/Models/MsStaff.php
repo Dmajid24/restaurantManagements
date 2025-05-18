@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class MsStaff extends Model
 {
-    use HasFactory;
-
     protected $table = 'msstaff';
     protected $primaryKey = 'staffID';
     public $incrementing = false;
@@ -17,19 +15,12 @@ class MsStaff extends Model
     protected $fillable = [
         'staffID',
         'staffName',
-        'staffpositionID',
-        'staffAddress',
-        'cityID'
+        'staffEmail',
+        'staffPositionID'
     ];
 
-    // Relasi (opsional)
     public function position()
     {
-        return $this->belongsTo(StaffPosition::class, 'staffpositionID', 'positionID');
-    }
-
-    public function city()
-    {
-        return $this->belongsTo(City::class, 'cityID', 'cityId');
+        return $this->belongsTo(StaffPosition::class, 'staffPositionID', 'staffPositionID');
     }
 }
