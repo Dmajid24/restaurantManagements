@@ -23,7 +23,11 @@ class MsStaff extends Model
         return $this->belongsTo(StaffPosition::class, 'staffPositionID', 'staffPositionID');
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> staff2
+=======
+}
+>>>>>>> history
