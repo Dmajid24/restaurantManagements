@@ -18,7 +18,7 @@ class CityFactory extends Factory
     public function definition(): array
     {
         return [
-            'cityId' => Str::random(20),
+            'cityId' => Str::uuid()->toString(),
             'cityName' => fake()->city(),
         ];
     }

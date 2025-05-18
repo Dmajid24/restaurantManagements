@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('ingredientID', 45);
             $table->string('ingredient_quantity', 45);
             $table->timestamps();
-        
+
             $table->foreign('menuID')->references('menuID')->on('msmenu');
             $table->foreign('ingredientID')->references('ingredientID')->on('msinventory');
         });

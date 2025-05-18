@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('staffpositiontable', function (Blueprint $table) {
-            $table->string('positionID', 20)->primary();
-            $table->string('positionName', 45);
+        Schema::create('citytable', function (Blueprint $table) {
+            $table->string('cityId', 20)->primary();
+            $table->string('cityName');
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('staffpositiontable');
+        Schema::dropIfExists('citytable');
     }
 };

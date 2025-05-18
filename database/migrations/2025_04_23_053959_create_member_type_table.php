@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('citytable', function (Blueprint $table) {
-            $table->string('cityID', 20)->primary();
-            $table->string('cityName', 45);
+        Schema::create('membertypetable', function (Blueprint $table) {
+            $table->string('memberTypeId', 20)->primary();
+            $table->string('memberType', 45);
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('citytable');
+        Schema::dropIfExists('membertypetable');
     }
 };

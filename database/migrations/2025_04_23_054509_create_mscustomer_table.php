@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('msstaff', function (Blueprint $table) {
-            $table->string('staffID', 10)->primary();
-            $table->string('staffName', 45);
-            $table->string('staffpositionID', 45);
-            $table->string('staffAddress');
+        Schema::create('mscustomer', function (Blueprint $table) {
+            $table->string('customerID', 50)->primary();
+            $table->string('customerName', 45);
+            $table->string('customerAddress', 45);
+            $table->string('memberTypeID', 45);
             $table->string('cityID', 45);
             $table->timestamps();
         
-            $table->foreign('staffpositionID')->references('positionID')->on('staffpositiontable');
+            $table->foreign('memberTypeID')->references('memberTypeID')->on('membertypetable');
             $table->foreign('cityID')->references('cityID')->on('citytable');
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('msstaff');
+        Schema::dropIfExists('mscustomer');
     }
 };

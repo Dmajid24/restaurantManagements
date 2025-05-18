@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\City;
 use App\Models\StaffPosition;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MsStaff>
@@ -20,7 +20,7 @@ class MsStaffFactory extends Factory
     public function definition(): array
     {
         return [
-            'staffID' => Str::random(10),
+            'staffID' => Str::uuid()->toString(),
             'staffName' => fake()->name(),
             'staffpositionID' => StaffPosition::inRandomOrder()->first()->positionID ?? StaffPosition::factory(),
             'staffAddress' => fake()->address(),

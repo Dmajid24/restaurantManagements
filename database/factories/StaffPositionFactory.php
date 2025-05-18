@@ -17,7 +17,7 @@ class StaffPositionFactory extends Factory
     public function definition(): array
     {
         return [
-           'positionID' => Str::random(20),
+            'positionID' => Str::uuid()->toString(),
             'positionName' => fake()->jobTitle(),
         ];
     }

@@ -17,7 +17,7 @@ class MemberTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            'memberTypeID' => Str::random(20),
+            'memberTypeID' => Str::uuid()->toString(),
             'memberTypeName' => fake()->randomElement(['Gold', 'Silver', 'Platinum']),
         ];
     }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('TransactionID')->references('TransactionID')->on('transactionheader');
-            $table->foreign('menuID')->references('menuID')->on('msmenu');;
+            $table->foreign('menuID')->references('menuID')->on('msmenu');
         });
     }
 

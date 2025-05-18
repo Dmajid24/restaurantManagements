@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('customerID', 45);
             $table->string('staffID', 45);
             $table->timestamps();
-        
+
             $table->foreign('customerID')->references('customerID')->on('mscustomer');
             $table->foreign('staffID')->references('staffID')->on('msstaff');
         });
