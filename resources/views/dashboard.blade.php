@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link rel="stylesheet" href="{{ asset('css/DashboardOptimize.css') }}">
 </head>
 <body>
@@ -51,8 +53,8 @@
                     <div class="card shadow p-3">
                         <div class="icon text-primary"></div>
                             <h6>Total Revenue</h6>
-                            <h4 id="Total-Revenue">Rp 2000000</h4>
-                            <div class=""> ▲ 20% than last month</div>
+                            <h4 id="Total-Revenue">Rp{{ number_format($totalRevenue ?? 0 ) }} </h4>
+                            <div class=""> ▲ {{ $revenueGrowth ?? 0 }}% than last month</div>
                     </div>
                 </div>
     
@@ -61,7 +63,7 @@
                         <div class="icon text-warning"></div>
                             <h6>Total Profit</h6>
                             <h4 id="Total-Profit">Rp45,000,000</h4>
-                            <div class="text-green">▲ +20% than last month</div>
+                            <div class="text-green">▲ +{{ $orderGrowth ?? 0 }}% than last month</div>
                     </div>
                 </div>
                 
@@ -69,8 +71,8 @@
                     <div class="card shadow p-3">
                         <div class="icon text-danger"></div>
                             <h6>Total Order</h6>
-                            <h4 id="Total-Order">20</h4>
-                            <div class="">▲ 40% than last month</div>
+                            <h4 id="Total-Order">{{$startThismonth ?? 0}}</h4>
+                            <div class="">▲ {{$orderGrowth ?? 0}}% than last month</div>
                     </div>
                 </div>
             </div> 
@@ -92,7 +94,7 @@
             <div class="card shadow">
                 <div class="card-body">
                     <div class="chart-container">
-                        <canvas id="weeklySalesChart"></canvas>
+                        <canvas id="weeklyPesenceChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -115,24 +117,26 @@
                         </a>
                     </li>
                     <li class="nav-items shadow" id="Top-Product-Sold">
-                        <h5>Top Product Sold</h5>
+                        <h5 class="mb-0">Top Product Sold</h5>
                         <div class="container">
                             <div class="product-list">
-                                <div class="product-item">
-                                    <div><strong>1</strong> #AA808</div>
-                                    <div>Tiramisu Roll</div>
+                                <div class="product-header d-flex fw-bold text-muted mb-2">
+                                    <div class="col-no">#</div>
+                                    <div class="col-id">ID</div>
+                                    <div class="col-name">Product</div>
                                 </div>
-                                <div class="product-item">
-                                    <div><strong>2</strong> #AA402</div>
-                                    <div>Burnt Cheesecake</div>
-                                </div>
-                                <div class="product-item">
-                                    <div><strong>3</strong> #AA402</div>
-                                    <div>Telor Gulung</div>
-                                </div>
+                                @foreach($topProducts as $index => $product)
+                                    <div class="product-row d-flex">
+                                        <div class="col-no"><strong>{{ $index + 1 }}</strong></div>
+                                        <div class="col-id">#{{ $product->menu->menuID }}</div>
+                                        <div class="col-name">{{ $product->menu->menuName }}</div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </li>
+                    
+                    
                     <li class="nav-items shadow" id="Order-Summary">
                         <h5>Order Summary</h5>
                         <div class="container">

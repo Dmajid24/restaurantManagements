@@ -320,3 +320,28 @@ h5{
     flex: 1;
     padding: 20px;
 }
+
+.product-header,
+.product-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+}
+
+.col-no {
+    width: 20px;
+    text-align: left;
+}
+
+.col-id {
+    width: 70px;
+    text-align: left;
+}
+
+.col-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
